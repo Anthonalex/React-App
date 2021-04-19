@@ -9,7 +9,7 @@ export default class Counter extends React.Component {
       counter: Number(localStorage.getItem("count")) || 0,
       maxValue: localStorage.getItem("maxValue") || 100,
       minValue: localStorage.getItem("minValue") || 0,
-      stepValue: localStorage.getItem("stepValue") || 1,
+      stepValue: Number(localStorage.getItem("stepValue")) || 1,
     };
   }
 
@@ -90,7 +90,12 @@ export default class Counter extends React.Component {
         </label>
 
         <p>{this.state.counter}</p>
-        <button onClick={this.handleInc}>+</button>
+        <button
+          onClick={this.handleInc}
+          disabled={this.state.counter >= this.state.maxValue}
+        >
+          +
+        </button>
         <button
           onClick={this.handleDec}
           disabled={this.state.counter <= this.state.minValue}
