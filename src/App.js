@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import React from "react";
+import Counter from "./components/Counter/counter"
+import LoginForm from "./components/LoginForm/login-form"
+import UnmouthingTracker from "./components/UnmouthingTracker/unmouthing-tracker"
+import Search from "./components/Search/search"
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+        <div>
+          <Counter />
+          <LoginForm />
+          <UnmouthingTracker />
+          <Search />
+        </div>
+      );
+    }
+
 
 export default App;
