@@ -1,4 +1,5 @@
 import React from "react";
+import "./counter.css";
 
 export default class Counter extends React.Component {
   constructor(props) {
@@ -6,22 +7,47 @@ export default class Counter extends React.Component {
 
     this.state = {
       counter: Number(localStorage.getItem("count")) || 0,
+      maxValue: localStorage.getItem("maxValue") || 100,
+      minValue: localStorage.getItem("minValue") || 0,
+      stepValue: localStorage.getItem("stepValue") || 1,
     };
   }
 
   componentDidUpdate() {
     localStorage.setItem("count", this.state.counter);
+    localStorage.setItem("maxValue", this.state.maxValue);
+    localStorage.setItem("minValue", this.state.minValue);
+    localStorage.setItem("stepValue", this.state.stepValue);
   }
 
-  handleInc = () => {
+  handleMaxValue = (e) => {
     this.setState((prevState) => ({
-      counter: prevState.counter + 1,
+      maxValue: Number(e.target.value),
+    }));
+  };
+
+  handleMinValue = (e) => {
+    this.setState((prevState) => ({
+      minValue: Number(e.target.value),
+    }));
+  };
+
+  handleStepValue = (e) => {
+    this.setState((prevState) => ({
+      stepValue: Number(e.target.value),
+    }));
+  };
+
+  handleInc = () => {
+    console.log(typeof Number(localStorage.getItem("stepValue")));
+    this.setState((prevState) => ({
+      counter: prevState.counter + this.state.stepValue,
     }));
   };
 
   handleDec = () => {
     this.setState((prevState) => ({
-      counter: prevState.counter - 1,
+      counter: prevState.counter - this.state.stepValue,
     }));
   };
 
@@ -29,18 +55,45 @@ export default class Counter extends React.Component {
     this.setState({
       counter: 0,
     });
-
     localStorage.clear();
   };
+
   render() {
     return (
       <div>
         <h1>Counter</h1>
+        <label>
+          max value
+          <input
+            type="number"
+            onChange={this.handleMaxValue}
+            value={this.state.maxValue}
+          />
+        </label>
+        <label>
+          min value
+          <input
+            type="number"
+            onChange={this.handleMinValue}
+            value={this.state.minValue}
+            min="0"
+          />
+        </label>
+        <label>
+          step value
+          <input
+            type="number"
+            onChange={this.handleStepValue}
+            value={this.state.stepValue}
+            min="1"
+          />
+        </label>
+
         <p>{this.state.counter}</p>
         <button onClick={this.handleInc}>+</button>
         <button
           onClick={this.handleDec}
-          disabled={this.setState.counter < 0 ? true : false}
+          disabled={this.state.counter <= this.state.minValue}
         >
           -
         </button>
