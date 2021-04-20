@@ -5,7 +5,7 @@
   width: 30%;
   border-radius: 4px;
   color: red;
-  /* display: none; */
+  display: none;
 }
 
 .invalid {
@@ -17,7 +17,7 @@
   display: block;
 }
 
-input {
+.login-form input {
   width: 180px;
   border-radius: 4px;
   padding: 6px;
@@ -28,8 +28,13 @@ input {
   background: rgba(255, 255, 0, 0.041);
 }
 
-span {
+.login-form span {
   margin-left: 8px;
   color: crimson;
   font-size: 12px;
+}
+
+.login-form button {
+  margin-top: 24px;
+  display: block;
 }

@@ -6,6 +6,7 @@ export default class LoginForm extends React.Component {
     super(props);
 
     this.state = {
+      loginError: "error-msg",
       isValidFirstName: "",
       firstNameErrorMsg: "",
       isValidLastName: "",
@@ -59,13 +60,72 @@ export default class LoginForm extends React.Component {
         }));
       }
     }
+
+    if (e.target.name === "email") {
+      if (e.target.value.includes("@")) {
+        this.setState(() => ({
+          isValidEmail: "valid",
+          emailErrorMsg: "",
+        }));
+      }
+      if (e.target.value === "") {
+        this.setState(() => ({
+          isValidEmail: "",
+          emailErrorMsg: "",
+        }));
+      }
+      if (!e.target.value.includes("@")) {
+        this.setState(() => ({
+          isValidEmail: "invalid",
+          emailErrorMsg: "Email must include @ symbol",
+        }));
+      }
+    }
+
+    if (e.target.name === "phoneNumber") {
+      if (!isNaN(e.target.value)) {
+        this.setState(() => ({
+          isValidPhoneNumber: "valid",
+          phoneNumberErrorMsg: "",
+        }));
+      }
+      if (isNaN(e.target.value)) {
+        this.setState(() => ({
+          isValidPhoneNumber: "invalid",
+          phoneNumberErrorMsg: "phone number should be a number type",
+        }));
+      }
+      if (e.target.value === "") {
+        this.setState(() => ({
+          isValidPhoneNumber: "",
+          phoneNumberErrorMsg: "",
+        }));
+      }
+    }
+  };
+
+  handleLogin = () => {
+    if (
+      this.state.isValidFirstName === "invalid" ||
+      this.state.isValidLastName === "invalid" ||
+      this.state.isValidEmail === "invalid" ||
+      this.state.isValidPhoneNumber === "invalid"
+    ) {
+      this.setState(() => ({
+        loginError: "error-msg active",
+      }));
+    } else {
+      this.setState(() => ({
+        loginError: "error-msg",
+      }));
+    }
   };
 
   render() {
     return (
-      <div>
+      <div className="login-form">
         <h1>Login Form</h1>
-        <div className="error-msg">
+        <div className={this.state.loginError}>
           One of the fields is incorrect or invalid please, follow the examples
           in order to continue.
         </div>
@@ -98,7 +158,7 @@ export default class LoginForm extends React.Component {
           onChange={this.handleChange}
           maxLength="20"
         />
-        <span>{this.state.firstNameErrorMsg}</span>
+        <span>{this.state.emailErrorMsg}</span>
         <p>Phone Number</p>
         <input
           type="text"
@@ -108,7 +168,8 @@ export default class LoginForm extends React.Component {
           onChange={this.handleChange}
           maxLength="10"
         />
-        <span>{this.state.firstNameErrorMsg}</span>
+        <span>{this.state.phoneNumberErrorMsg}</span>
+        <button onClick={this.handleLogin} disabled={}>Log In</button>
       </div>
     );
   }
