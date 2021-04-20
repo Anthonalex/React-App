@@ -1,0 +1,35 @@
+.error-msg {
+  background: rgba(220, 20, 60, 0.062);
+  border: 2px solid red;
+  padding: 8px;
+  width: 30%;
+  border-radius: 4px;
+  color: red;
+  /* display: none; */
+}
+
+.invalid {
+  background: rgba(220, 20, 60, 0.062);
+  border: 2px solid red;
+}
+
+.active {
+  display: block;
+}
+
+input {
+  width: 180px;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.valid {
+  border: 1px solid rgba(153, 205, 50, 0.37);
+  background: rgba(255, 255, 0, 0.041);
+}
+
+span {
+  margin-left: 8px;
+  color: crimson;
+  font-size: 12px;
+}

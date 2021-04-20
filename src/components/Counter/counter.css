@@ -1,8 +1,16 @@
 button {
   padding: 4px 8px;
   margin: 8px;
-  border: 1px solid;
+  border: 1px solid rgba(99, 96, 96, 0.397);
   background-color: aqua;
+  transition: 0.5s;
+}
+
+button:hover {
+  cursor: pointer;
+  scale: 0.3;
+  transform: scale(1.1);
+  background: cadetblue;
 }
 
 input {
