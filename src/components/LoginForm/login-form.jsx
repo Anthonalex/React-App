@@ -18,6 +18,8 @@ export default class LoginForm extends React.Component {
     };
   }
 
+  componentDidUpdate() {}
+
   handleChange = (e) => {
     if (e.target.name === "firstName") {
       if (e.target.value.length >= 5) {
@@ -109,7 +111,11 @@ export default class LoginForm extends React.Component {
       this.state.isValidFirstName === "invalid" ||
       this.state.isValidLastName === "invalid" ||
       this.state.isValidEmail === "invalid" ||
-      this.state.isValidPhoneNumber === "invalid"
+      this.state.isValidPhoneNumber === "invalid" ||
+      this.state.isValidFirstName === "" ||
+      this.state.isValidLastName === "" ||
+      this.state.isValidEmail === "" ||
+      this.state.isValidPhoneNumber === ""
     ) {
       this.setState(() => ({
         loginError: "error-msg active",
@@ -169,7 +175,7 @@ export default class LoginForm extends React.Component {
           maxLength="10"
         />
         <span>{this.state.phoneNumberErrorMsg}</span>
-        <button onClick={this.handleLogin} disabled={}>Log In</button>
+        <button onClick={this.handleLogin}>Log In</button>
       </div>
     );
   }
