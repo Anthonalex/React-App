@@ -18,7 +18,6 @@ export default class LoginForm extends React.Component {
     };
   }
 
-  componentDidUpdate() {}
 
   handleChange = (e) => {
     if (e.target.name === "firstName") {
@@ -76,7 +75,7 @@ export default class LoginForm extends React.Component {
           emailErrorMsg: "",
         }));
       }
-      if (!e.target.value.includes("@")) {
+      if (!e.target.value.includes("@") && e.target.value !== "") {
         this.setState(() => ({
           isValidEmail: "invalid",
           emailErrorMsg: "Email must include @ symbol",
