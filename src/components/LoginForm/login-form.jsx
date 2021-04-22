@@ -18,7 +18,6 @@ export default class LoginForm extends React.Component {
     };
   }
 
-
   handleChange = (e) => {
     if (e.target.name === "firstName") {
       if (e.target.value.length >= 5) {

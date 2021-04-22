@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 802px;
+  flex-wrap: wrap;
+  border: 1px solid #000;
+}
+
+.cardBox {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #000;
+  margin: 8px;
+  padding: 16px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px solid #000;
+}

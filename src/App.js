@@ -1,7 +1,7 @@
 import React from "react";
 import Counter from "./components/Counter/counter";
 import LoginForm from "./components/LoginForm/login-form";
-import UnmouthingTracker from "./components/UnmouthingTracker/unmouthing-tracker";
+import UnmountingCountTracker from "./components/UnmouthingTracker/UnmountingCountTracker";
 import Search from "./components/Search/search";
 import "./App.css";
 
@@ -16,7 +16,7 @@ function App() {
       <br></br>
       <br></br>
       <br></br>
-      <UnmouthingTracker />
+      <UnmountingCountTracker />
       <br></br>
       <br></br>
       <br></br>
