@@ -1,10 +1,11 @@
 import React from "react";
 
 export default class Search extends React.Component {
-
   render() {
     return (
-      <h1>hjvrsdfc</h1>
-    )
+      <div>
+        <h1>Search Bar</h1>
+      </div>
+    );
   }
 }

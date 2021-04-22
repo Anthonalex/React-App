@@ -27,7 +27,6 @@ export default class UnmountingCountTracker extends React.Component {
           : el
       ),
     }));
-    console.log(this.state);
   };
 
   handleOpen = (e) => {
@@ -36,14 +35,12 @@ export default class UnmountingCountTracker extends React.Component {
         el.id === +e.target.id ? { ...el, isHidden: false } : el
       ),
     }));
-    console.log(this.state);
   };
 
   handleReport = () => {
     this.setState({
       isReportBoxShow: true,
     });
-    
   };
 
   render() {
